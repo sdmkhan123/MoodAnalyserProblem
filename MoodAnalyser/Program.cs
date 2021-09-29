@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoodAnalyserProblem
+namespace MoodAnalyser
 {
     class Program
     {
@@ -12,8 +12,8 @@ namespace MoodAnalyserProblem
             Console.WriteLine("------------------Anlyse mood with default constructor------------------");
             Console.WriteLine("Write about your mood");
             string mood = Console.ReadLine();
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            Console.WriteLine(moodAnalyser.analyseMood(mood));
+            MoodAnalysers moodAnalyser = new MoodAnalysers(mood);
+            Console.WriteLine(moodAnalyser.AnalyserMethod());
             Console.WriteLine("\n***************************************************************************\n");
         }
     }
