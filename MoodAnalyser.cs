@@ -6,7 +6,7 @@ namespace MoodAnalyserProblem
 {
     public class MoodAnalyser
     {
-        public string toCheckMood(string str)
+        public string analyseMood(string str)
         {
             string[] mood = str.Split(" ");
             for(int i=0; i<mood.Length; i++)

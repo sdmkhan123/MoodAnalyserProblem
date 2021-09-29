@@ -12,7 +12,7 @@ namespace MoodAnalyserProblem
             MoodAnalyser moodAnalyser = new MoodAnalyser();
             Console.WriteLine("Write about your mood");
             string mood = Console.ReadLine();
-            Console.WriteLine(moodAnalyser.toCheckMood(mood));
+            Console.WriteLine(moodAnalyser.analyseMood(mood));
             Console.WriteLine("\n***************************************************************************\n");
         }
     }
