@@ -30,13 +30,29 @@ namespace UnitTest1
         [TestMethod]
         public void TestMethod3()
         {
+            try
+            {
 
-            //Arrange
-            MoodAnalysers moodAnalyser = new MoodAnalysers(null);
-            //Act
-            var result = moodAnalyser.AnalyserMethod();
-            //Assert
-            Assert.AreEqual("HAPPY", result);
+                MoodAnalysers moodAnalyzer = new MoodAnalysers(" ");
+                string mood = moodAnalyzer.AnalyserMethod();
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Mood should not be empty", e.Message);
+            }
+        }
+        [TestMethod]
+        public void TestMethod4()
+        {
+            try
+            {
+                MoodAnalysers moodAnalyzer = new MoodAnalysers(null);
+                string mood = moodAnalyzer.AnalyserMethod();
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Mood should not be null", e.Message);
+            }
         }
     }
 }
