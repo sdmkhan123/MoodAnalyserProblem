@@ -26,10 +26,10 @@ namespace MoodAnalyser
             {
                 if (mood[i].ToLower() == "sad")
                 {
-                    return "Sad";
+                    return "SAD";
                 }
             }
-            return "Happy";
+            return "HAPPY";
         }
     }
 }
