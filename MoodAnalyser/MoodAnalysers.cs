@@ -7,6 +7,10 @@ namespace MoodAnalyser
     public class MoodAnalysers
     {
         public string message;
+        public MoodAnalysers()
+        {
+            this.message = "I am in Sad mood";
+        }
         /// <summary>
         /// Parameterised Constructor
         /// </summary>
@@ -15,21 +19,23 @@ namespace MoodAnalyser
         {
             this.message = message;
         }
+
         /// <summary>
         /// Mood Analyser check Happy or sad
         /// </summary>
         /// <returns></returns>
         public string AnalyserMethod()
         {
-            string[] mood = this.message.Split(" ");
-            for (int i = 0; i < mood.Length; i++)
+            if (this.message.ToLower().Contains("sad"))
             {
-                if (mood[i].ToLower() == "sad")
-                {
-                    return "SAD";
-                }
+                return "SAD";
             }
-            return "HAPPY";
+            else if (this.message.ToLower().Contains("happy"))
+            {
+                return "SAD";
+            }
+            else
+                return "HAPPY";
         }
     }
 }

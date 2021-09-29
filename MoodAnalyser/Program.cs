@@ -10,10 +10,8 @@ namespace MoodAnalyser
             Console.WriteLine("Welcome to Mood Analyser Problem");
             Console.WriteLine("\n***************************************************************************\n");
             Console.WriteLine("------------------Anlyse mood with default constructor------------------");
-            Console.WriteLine("Write about your mood");
-            string mood = Console.ReadLine();
-            MoodAnalysers moodAnalyser = new MoodAnalysers(mood);
-            Console.WriteLine(moodAnalyser.AnalyserMethod());
+            MoodAnalysers analyser = new MoodAnalysers();
+            Console.WriteLine(analyser.AnalyserMethod());
             Console.WriteLine("\n***************************************************************************\n");
         }
     }
