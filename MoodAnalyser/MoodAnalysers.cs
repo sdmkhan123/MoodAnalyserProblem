@@ -26,19 +26,22 @@ namespace MoodAnalyser
         /// <returns></returns>
         public string AnalyserMethod()
         {
-            string[] mood = message.Split(" ");
-            for (int i = 0; i < mood.Length; i++)
+            try
             {
-                if (mood[i].ToLower() == "sad")
+                string[] mood = message.Split(" ");
+                for (int i = 0; i < mood.Length; i++)
                 {
-                    return "SAD";
+                    if (mood[i].ToLower() == "sad")
+                    {
+                        return "SAD";
+                    }
                 }
-                else if(mood[i].ToLower() == "happy")
-                {
-                    return "SAD";
-                }
+                return "HAPPY";
             }
-            return "HAPPY";
+            catch
+            {
+                return "HAPPY";
+            }
         }
     }
 }

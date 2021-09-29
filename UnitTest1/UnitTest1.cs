@@ -25,7 +25,18 @@ namespace UnitTest1
             //Act
             var result = moodAnalyser.AnalyserMethod();
             //Assert
-            Assert.AreEqual("SAD", result);
+            Assert.AreEqual("HAPPY", result);
+        }
+        [TestMethod]
+        public void TestMethod3()
+        {
+
+            //Arrange
+            MoodAnalysers moodAnalyser = new MoodAnalysers(null);
+            //Act
+            var result = moodAnalyser.AnalyserMethod();
+            //Assert
+            Assert.AreEqual("HAPPY", result);
         }
     }
 }
