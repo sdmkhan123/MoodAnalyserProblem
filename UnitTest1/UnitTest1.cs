@@ -33,7 +33,7 @@ namespace UnitTest1
             try
             {
 
-                MoodAnalysers moodAnalyzer = new MoodAnalysers(" ");
+                MoodAnalysers moodAnalyzer = new MoodAnalysers("");
                 string mood = moodAnalyzer.AnalyserMethod();
             }
             catch (MoodAnalyserCustomException e)

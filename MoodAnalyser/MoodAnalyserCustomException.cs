@@ -16,7 +16,7 @@ namespace MoodAnalyser
             OBJECT_CREATION_ISSUE
         }
         private readonly ExceptionType type;
-        public MoodAnalyserCustomException(ExceptionType Type, String message) : base(message)
+        public MoodAnalyserCustomException(ExceptionType Type, string message) : base(message)
         {
             this.type = Type;
 
