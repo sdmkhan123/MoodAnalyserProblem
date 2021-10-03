@@ -55,12 +55,12 @@ namespace UnitTest1
             }
         }
         /// <summary>
-        /// Test case 4.1, create a MoodAnalyser Object with default constructor and check if the two objects are equal
+        /// Test case 4.1, create a MoodAnalyser Object with default constructor and return object
         /// </summary>
         [TestMethod]
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
         {
-            string message = null;
+            string message = "Anythins in message";
             object expected = new MoodAnalysers(message);
             object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalysers", "MoodAnalysers");
             expected.Equals(obj);
@@ -73,7 +73,7 @@ namespace UnitTest1
 
         public void GivenWrongClassName_ShouldThrowException()
         {
-            string message = null;
+            string message = "Anythins in message";
             object expected = new MoodAnalysers(message);
             object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.moodanalysers", "MoodAnalysers");
             expected.Equals(obj);
@@ -85,9 +85,44 @@ namespace UnitTest1
         [ExpectedException(typeof(MoodAnalyserCustomException))]
         public void GivenClassConstructerNotProper_ShouldThrowException()
         {
-            string message = null;
+            string message = "Anythins in message";
             object expected = new MoodAnalysers(message);
             object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.Moodanalysers", "MoodAnalysers(int)");
+            expected.Equals(obj);
+        }
+        /// <summary>
+        /// Test case 5.1, create a MoodAnalyser Object with default constructor and return object
+        /// </summary>
+        [TestMethod]
+        public void GivenMoodAnalyser_ShouldReturnMoodAnalyserObject()
+        {
+            string message = "Anythins in message";
+            object expected = new MoodAnalysers(message);
+            object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalysers", "MoodAnalysers", "SAD");
+            expected.Equals(obj);
+        }
+        /// <summary>
+        /// Test case 5.2, pass wrong class name catch Exception and throw Exception indicating No Such Class Error
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(MoodAnalyserCustomException))]
+        public void GivenMoodAnalyserWrongClassName_ShouldThrowMoodAnalysisException()
+        {
+            string message = "Anythins in message";
+            object expected = new MoodAnalysers(message);
+            object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.moodnalyser", "MoodAnalysers", "SAD");
+            expected.Equals(obj);
+        }
+        /// <summary>
+        /// Test case 5.3, pass wrong Constructor parameter, catch the Exception and throw indicating No Such Method Error
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(MoodAnalyserCustomException))]
+        public void GivenMoodAnalyserClassNameWithNoProperConstructor_ShouldThrowMoodAnalysisException()
+        {
+            string message = "Anythins in message";
+            object expected = new MoodAnalysers(message);
+            object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalysers", "moodanalyser", "SAD");
             expected.Equals(obj);
         }
     }
