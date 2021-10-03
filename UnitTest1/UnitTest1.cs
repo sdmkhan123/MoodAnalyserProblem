@@ -54,5 +54,41 @@ namespace UnitTest1
                 Assert.AreEqual("Mood should not be null", e.Message);
             }
         }
+        /// <summary>
+        /// Test case 4.1, create a MoodAnalyser Object with default constructor and check if the two objects are equal
+        /// </summary>
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            string message = null;
+            object expected = new MoodAnalysers(message);
+            object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalysers", "MoodAnalysers");
+            expected.Equals(obj);
+        }
+        /// <summary>
+        /// Test case 4.2, pass wrong class name catch Exception and throw Exception indicating No Such Class Error
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(MoodAnalyserCustomException))]
+
+        public void GivenWrongClassName_ShouldThrowException()
+        {
+            string message = null;
+            object expected = new MoodAnalysers(message);
+            object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.moodanalysers", "MoodAnalysers");
+            expected.Equals(obj);
+        }
+        /// <summary>
+        /// Test case 4.3, pass wrong Constructor parameter, catch the Exception and throw indicating No Such Method Error
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(MoodAnalyserCustomException))]
+        public void GivenClassConstructerNotProper_ShouldThrowException()
+        {
+            string message = null;
+            object expected = new MoodAnalysers(message);
+            object obj = ReflectionMoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.Moodanalysers", "MoodAnalysers(int)");
+            expected.Equals(obj);
+        }
     }
 }
